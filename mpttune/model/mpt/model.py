@@ -990,6 +990,7 @@ def load_model(llm_config, checkpoint, half=False, backend='triton'):
         )
 
         model.loaded_in_4bit = True
+        print("model is 4 bits)
 
     elif llm_config.bits == 8:
         model = MPTForCausalLM.from_pretrained(
@@ -999,6 +1000,7 @@ def load_model(llm_config, checkpoint, half=False, backend='triton'):
             device_map=llm_config.device_map
         )
         model.loaded_in_8bit = True
+        print("model is 8 bits)
 
     else:
         model = MPTForCausalLM.from_pretrained(
@@ -1008,6 +1010,7 @@ def load_model(llm_config, checkpoint, half=False, backend='triton'):
             device_map=llm_config.device_map
         )
         model.loaded_in_bf16 = True
+        print("model is 16 bits)
 
     if config.no_bias:
         for module in model.modules():
