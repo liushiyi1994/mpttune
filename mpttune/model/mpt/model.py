@@ -960,6 +960,7 @@ class MPTForCausalLM(MPTPreTrainedModel):
 def load_model(llm_config, checkpoint, half=False, backend='triton'):
     config = MPTConfig.from_pretrained(llm_config.hf_config_name)
     config.max_seq_len = llm_config.max_seq_len
+    print("I'm loading the model")
 
     assert config.attn_config['attn_impl'] in ['torch', 'triton']
     config.attn_config['attn_impl'] = llm_config.attn_impl
