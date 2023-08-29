@@ -1007,11 +1007,14 @@ def load_model(llm_config, checkpoint, half=False, backend='triton'):
         model = MPTForCausalLM.from_pretrained(
             checkpoint,
             config=config,
-            torch_dtype=torch.bfloat16,
+            # torch_dtype=torch.bfloat16,
+            torch_dtype = torch.quint4x2,
             device_map=llm_config.device_map
         )
-        model.loaded_in_bf16 = True
-        print("model is 16 bits")
+        # model.loaded_in_bf16 = True
+        # print("model is 16 bits")
+        model.loaded_in_4bit = True
+        print("model is 4 bits")
 
     if config.no_bias:
         for module in model.modules():
