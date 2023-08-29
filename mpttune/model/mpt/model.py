@@ -59,7 +59,7 @@ class MPTConfig(PretrainedConfig):
                  norm_type: str = 'low_precision_layernorm',
                  use_cache: bool = False,
                  tokenizer_name: str = "EleutherAI/gpt-neox-20b",
-                 torch_dtype: str = "qint8",
+                 torch_dtype: str = "quint4x2",
                  transformers_version: str = "4.29.2",
 
                  init_config: Dict = {
