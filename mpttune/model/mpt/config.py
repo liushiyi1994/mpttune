@@ -14,7 +14,7 @@ class MPT7BInstruct8bitConfig:
     hf_config_name = "mosaicml/mpt-7b-instruct"
     hf_tokenizer_config = "EleutherAI/gpt-neox-20b"
     bits = 4
-    groupsize = 128
+    groupsize = None
     max_seq_len = 2048
     attn_impl = 'torch'
     device_map = "auto"
